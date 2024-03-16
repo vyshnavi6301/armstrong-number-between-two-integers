@@ -1,0 +1,21 @@
+def is_armstrong(num):
+    # Calculate the number of digits
+    num_digits = len(str(num))
+    
+    # Calculate the sum of digits each raised to the power of num_digits
+    sum_of_digits = sum(int(digit) ** num_digits for digit in str(num))
+    
+    # Check if the number is Armstrong
+    return num == sum_of_digits
+
+def armstrong_numbers_between(start, end):
+    armstrong_numbers = []
+    for num in range(start, end + 1):
+        if is_armstrong(num):
+            armstrong_numbers.append(num)
+    return armstrong_numbers
+
+# Example usage:
+start = 100
+end = 1000
+print("Armstrong numbers between", start, "and", end, "are:", armstrong_numbers_between(start, end))
